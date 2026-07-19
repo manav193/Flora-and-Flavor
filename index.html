@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Flora & Flavor — Botanical Dining</title>
+
+  <meta
+    name="description"
+    content="Flora & Flavor is a conceptual luxury vegetarian restaurant with an immersive editorial dining experience."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --forest: #173a2c;
+      --forest-dark: #0c2118;
+      --paper: #f7f3e9;
+      --cream: #eee8da;
+      --lime: #dce9b8;
+      --ink: #14231c;
+      --muted: #6d756f;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+      --display: "DM Sans", Arial, sans-serif;
+      --container: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--container));
+      margin-inline: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 220ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-dark {
+      color: var(--paper);
+      background: var(--forest);
+    }
+
+    .button-dark:hover {
+      background: var(--forest-dark);
+    }
+
+    .button-light {
+      color: var(--forest);
+      background: var(--paper);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    /* Header */
+
+    .site-header {
+      position: fixed;
+      z-index: 100;
+      top: 22px;
+      right: 0;
+      left: 0;
+    }
+
+    .nav {
+      display: flex;
+      min-height: 66px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px 10px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      background: rgba(247, 243, 233, 0.78);
+      box-shadow: 0 16px 50px rgba(20, 40, 30, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--paper);
+      background: var(--forest);
+      font-family: var(--display);
+      font-size: 0.72rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      color: #45544b;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 760px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(255, 255, 255, 0.96),
+          transparent 30%
+        ),
+        linear-gradient(180deg, #faf7ef 0%, #eae6d9 100%);
+    }
+
+    .hero-noise {
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .hero-word {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      color: rgba(23, 58, 44, 0.07);
+      font-family: var(--display);
+      font-size: clamp(8rem, 19vw, 19rem);
+      font-weight: 600;
+      letter-spacing: -0.09em;
+      line-height: 0.75;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+
+    .hero-kicker {
+      position: absolute;
+      z-index: 8;
+      top: 140px;
+      right: 0;
+      left: 0;
+      color: var(--forest);
+      text-align: center;
+    }
+
+    .hero-kicker span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker span::before,
+    .hero-kicker span::after {
+      width: 40px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+      opacity: 0.4;
+    }
+
+    .orbit {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      width: min(70vw, 880px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(23, 58, 44, 0.12);
+      border-radius: 50%;
+      transform: translate(-50%, -49%);
+      will-change: transform;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      position: absolute;
+      border: 1px solid rgba(23, 58, 44, 0.09);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .orbit::before {
+      inset: 9%;
+    }
+
+    .orbit::after {
+      inset: 21%;
+    }
+
+    .hero-center-content {
+      position: absolute;
+      z-index: 6;
+      top: 50%;
+      left: 50%;
+      width: min(92vw, 1000px);
+      text-align: center;
+      transform: translate(-50%, -40%);
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+
+    .hero-center-content::before {
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: min(90vw, 900px);
+      height: 135%;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle,
+          rgba(250, 247, 239, 0.62) 0%,
+          rgba(250, 247, 239, 0.25) 48%,
+          transparent 72%
+        );
+      content: "";
+      opacity: 0.42;
+      transform: translate(-50%, -50%) scale(0.9);
+      pointer-events: none;
+    }
+
+    .hero-center-label {
+      margin-bottom: 18px;
+      color: rgba(23, 58, 44, 0.7);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.21em;
+      text-transform: uppercase;
+    }
+
+    .hero-center-title {
+      max-width: 1000px;
+      margin: 0 auto;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6.5vw, 6.8rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.95;
+      text-wrap: balance;
+    }
+
+    .title-line {
+      display: block;
+    }
+
+    .title-line-accent {
+      display: block;
+      color: #315847;
+      font-style: italic;
+    }
+
+    .hero-center-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 30px;
+      pointer-events: auto;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: 220ms ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-cta-solid {
+      color: var(--paper);
+      background: var(--forest);
+      box-shadow: 0 14px 34px rgba(23, 58, 44, 0.18);
+    }
+
+    .hero-cta-outline {
+      color: var(--forest);
+      border: 1px solid rgba(23, 58, 44, 0.3);
+      background: rgba(247, 243, 233, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .bowl-stage {
+      position: absolute;
+      z-index: 7;
+      top: 50%;
+      left: 50%;
+      width: min(58vw, 730px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -48%);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .bowl-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 10px solid rgba(255, 255, 255, 0.72);
+      border-radius: 50%;
+      box-shadow:
+        0 30px 50px rgba(19, 42, 29, 0.16),
+        0 70px 110px rgba(19, 42, 29, 0.16);
+      will-change: transform;
+    }
+
+    .hero-bowl {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+    }
+
+    .bowl-shadow {
+      position: absolute;
+      right: 12%;
+      bottom: -2%;
+      left: 12%;
+      height: 17%;
+      border-radius: 50%;
+      background: rgba(13, 35, 22, 0.24);
+      filter: blur(32px);
+      transform: scaleX(1.15);
+      will-change: transform, opacity;
+    }
+
+    .hero-copy {
+      position: absolute;
+      z-index: 8;
+      right: 0;
+      bottom: 42px;
+      left: 0;
+    }
+
+    .hero-copy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: end;
+      gap: 30px;
+    }
+
+    .hero-copy-left {
+      max-width: 310px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .hero-copy-right {
+      max-width: 320px;
+      justify-self: end;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      line-height: 1.4;
+      text-align: right;
+    }
+
+    .scroll-indicator {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      color: var(--forest);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      position: relative;
+      width: 1px;
+      height: 54px;
+      overflow: hidden;
+      background: rgba(23, 58, 44, 0.18);
+    }
+
+    .scroll-line::after {
+      position: absolute;
+      inset: 0;
+      background: var(--forest);
+      content: "";
+      transform: translateY(-100%);
+      animation: scrollMove 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollMove {
+      to {
+        transform: translateY(100%);
+      }
+    }
+
+    /* Story */
+
+    .story {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 150px 0;
+      color: var(--paper);
+      background: var(--forest-dark);
+    }
+
+    .story-word {
+      position: absolute;
+      top: 10%;
+      left: -4%;
+      color: rgba(255, 255, 255, 0.035);
+      font-family: var(--display);
+      font-size: clamp(10rem, 24vw, 24rem);
+      font-weight: 600;
+      letter-spacing: -0.1em;
+      line-height: 0.72;
+      text-transform: uppercase;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .story-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      min-height: 680px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .section-number {
+      margin-bottom: 36px;
+      color: var(--lime);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+
+    .story-title {
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: clamp(3.8rem, 7vw, 7rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.97;
+    }
+
+    .story-title em {
+      color: var(--lime);
+      font-weight: 500;
+    }
+
+    .story-copy {
+      max-width: 520px;
+      justify-self: end;
+    }
+
+    .story-copy p {
+      margin-bottom: 30px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 1.06rem;
+      line-height: 1.85;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 44px;
+    }
+
+    .stat {
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .stat span {
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Editorial */
+
+    .editorial {
+      padding: 140px 0;
+      background: var(--paper);
+    }
+
+    .editorial-header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+
+    .editorial-title {
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 6.8vw, 7rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.97;
+    }
+
+    .editorial-intro {
+      max-width: 420px;
+      justify-self: end;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+    }
+
+    .editorial-card {
+      position: relative;
+      min-height: 700px;
+      overflow: hidden;
+      border-radius: 34px;
+    }
+
+    .editorial-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms ease;
+    }
+
+    .editorial-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .editorial-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 42px;
+      color: var(--paper);
+      background:
+        linear-gradient(to top, rgba(7, 22, 15, 0.78), transparent 60%);
+    }
+
+    .editorial-label {
+      margin-bottom: 14px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .editorial-card h3 {
+      max-width: 560px;
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    /* Menu */
+
+    .menu {
+      padding: 140px 0;
+      color: var(--paper);
+      background: var(--forest);
+    }
+
+    .menu-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 50px;
+    }
+
+    .menu-title {
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 7vw, 7rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.95;
+    }
+
+    .menu-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: end;
+    }
+
+    .filter-button {
+      padding: 11px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.7);
+      background: transparent;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: 220ms ease;
+    }
+
+    .filter-button.active {
+      color: var(--forest);
+      background: var(--paper);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .dish-card.hidden {
+      display: none;
+    }
+
+    .dish-card.entering {
+      animation: cardEnter 420ms ease both;
+    }
+
+    @keyframes cardEnter {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dish-image {
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .dish-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms ease;
+    }
+
+    .dish-card:hover .dish-image img {
+      transform: scale(1.05);
+    }
+
+    .dish-content {
+      padding: 26px;
+    }
+
+    .dish-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .dish-name {
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    .dish-price {
+      color: var(--lime);
+      font-weight: 600;
+    }
+
+    .dish-description {
+      min-height: 70px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .dish-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      color: var(--forest);
+      background: var(--lime);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .add-button {
+      padding: 10px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: var(--paper);
+      background: transparent;
+      font-size: 0.76rem;
+      font-weight: 600;
+      transition: 220ms ease;
+    }
+
+    .add-button.added,
+    .add-button:hover {
+      color: var(--forest);
+      background: var(--paper);
+    }
+
+    /* Reservation */
+
+    .reservation {
+      padding: 140px 0;
+      background:
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(220, 233, 184, 0.4),
+          transparent 30%
+        ),
+        var(--cream);
+    }
+
+    .reservation-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .reservation-title {
+      margin-top: 22px;
+      color: var(--forest);
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 6vw, 6.5rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.96;
+    }
+
+    .reservation-copy p {
+      max-width: 500px;
+      margin-top: 26px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .reservation-form {
+      padding: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.64);
+      box-shadow: 0 30px 80px rgba(28, 48, 35, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: var(--forest);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 54px;
+      padding: 14px 16px;
+      border: 1px solid rgba(23, 58, 44, 0.14);
+      border-radius: 14px;
+      color: var(--ink);
+      outline: none;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--forest);
+      box-shadow: 0 0 0 4px rgba(23, 58, 44, 0.08);
+    }
+
+    .submit-button {
+      width: 100%;
+    }
+
+    /* Footer / Cart / Toast */
+
+    .footer {
+      padding: 80px 0 30px;
+      color: rgba(255, 255, 255, 0.6);
+      background: var(--forest-dark);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.75fr 0.75fr;
+      gap: 60px;
+    }
+
+    .footer-brand {
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: 2rem;
+    }
+
+    .footer-copy {
+      max-width: 430px;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .footer-heading {
+      color: var(--paper);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-bottom {
+      margin-top: 70px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.78rem;
+    }
+
+    .floating-cart {
+      position: fixed;
+      z-index: 120;
+      right: 24px;
+      bottom: 24px;
+      display: flex;
+      min-height: 58px;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px 10px 20px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--forest);
+      background: var(--lime);
+      box-shadow: 0 20px 50px rgba(18, 42, 28, 0.2);
+      font-weight: 600;
+    }
+
+    .floating-cart.bump {
+      animation: cartBump 400ms ease;
+    }
+
+    @keyframes cartBump {
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    .cart-count {
+      display: grid;
+      min-width: 30px;
+      height: 30px;
+      place-items: center;
+      padding: 0 8px;
+      border-radius: 999px;
+      color: var(--paper);
+      background: var(--forest);
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 200;
+      top: 24px;
+      right: 24px;
+      display: grid;
+      width: min(420px, calc(100% - 32px));
+      grid-template-columns: auto 1fr auto;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 20px;
+      color: var(--paper);
+      background: rgba(12, 33, 24, 0.96);
+      box-shadow: 0 28px 80px rgba(10, 28, 19, 0.28);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-16px);
+      transition: 300ms ease;
+      backdrop-filter: blur(18px);
+    }
+
+    .toast.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .toast-icon {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--forest);
+      background: var(--lime);
+    }
+
+    .toast strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .toast p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .toast-close {
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 50%;
+      color: var(--paper);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none;
+      }
+
+      .bowl-stage {
+        width: min(76vw, 720px);
+      }
+
+      .orbit {
+        width: min(86vw, 820px);
+      }
+
+      .hero-center-content {
+        width: min(92vw, 820px);
+      }
+
+      .story-grid,
+      .editorial-header,
+      .reservation-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-copy,
+      .editorial-intro {
+        justify-self: start;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .site-header {
+        top: 12px;
+      }
+
+      .nav {
+        min-height: 58px;
+        padding: 8px 8px 8px 14px;
+      }
+
+      .nav .button {
+        min-height: 42px;
+        padding: 0 15px;
+        font-size: 0.76rem;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+
+      .hero-kicker {
+        top: 110px;
+      }
+
+      .hero-kicker span {
+        font-size: 0.6rem;
+      }
+
+      .hero-kicker span::before,
+      .hero-kicker span::after {
+        width: 22px;
+      }
+
+      .hero-center-content {
+        top: 47%;
+        width: calc(100% - 28px);
+      }
+
+      .hero-center-title {
+        font-size: clamp(2.5rem, 11vw, 4.3rem);
+        line-height: 0.98;
+      }
+
+      .hero-center-label {
+        font-size: 0.58rem;
+      }
+
+      .hero-cta {
+        min-height: 46px;
+        padding: 0 18px;
+        font-size: 0.77rem;
+      }
+
+      .bowl-stage {
+        width: 96vw;
+      }
+
+      .orbit {
+        width: 112vw;
+      }
+
+      .hero-word {
+        font-size: 8rem;
+      }
+
+      .hero-copy {
+        bottom: 24px;
+      }
+
+      .hero-copy-grid {
+        grid-template-columns: 1fr auto;
+      }
+
+      .hero-copy-right {
+        display: none;
+      }
+
+      .hero-copy-left {
+        font-size: 0.78rem;
+      }
+
+      .story,
+      .editorial,
+      .menu,
+      .reservation {
+        padding: 100px 0;
+      }
+
+      .story-grid {
+        min-height: auto;
+        gap: 60px;
+      }
+
+      .stats,
+      .menu-grid,
+      .form-grid,
+      .editorial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .editorial-card {
+        min-height: 500px;
+      }
+
+      .menu-header {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-filters {
+        justify-content: start;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .reservation-form {
+        padding: 24px;
+      }
+
+      .floating-cart {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a class="brand" href="#hero">
+          <span class="brand-mark">F&F</span>
+          Flora & Flavor
+        </a>
+
+        <div class="nav-links">
+          <a href="#story">Philosophy</a>
+          <a href="#menu">Menu</a>
+          <a href="#reservation">Reservations</a>
+        </div>
+
+        <a class="button button-dark" href="#reservation">
+          Reserve
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-noise"></div>
+
+      <div class="hero-word" id="heroWord">
+        Flora
+      </div>
+
+      <div class="orbit" id="orbit"></div>
+
+      <div class="hero-kicker">
+        <span>Botanical dining, reimagined</span>
+      </div>
+
+      <div class="hero-center-content" id="heroCenterContent">
+        <p class="hero-center-label">
+          Pure vegetarian. Seasonally composed.
+        </p>
+
+        <h1 class="hero-center-title">
+          <span class="title-line">
+            Nurtured by Nature.
+          </span>
+
+          <span class="title-line-accent">
+            Crafted for the Senses.
+          </span>
+        </h1>
+
+        <div class="hero-center-actions">
+          <a class="hero-cta hero-cta-solid" href="#menu">
+            Explore Menu
+          </a>
+
+          <a class="hero-cta hero-cta-outline" href="#reservation">
+            Book a Table
+          </a>
+        </div>
+      </div>
+
+      <div class="bowl-stage" id="bowlStage">
+        <div class="bowl-shadow" id="bowlShadow"></div>
+
+        <div class="bowl-frame" id="bowlFrame">
+          <img
+            class="hero-bowl"
+            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1400&q=95"
+            alt="Fresh colorful vegetarian salad bowl"
+          />
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <div class="container hero-copy-grid">
+          <p class="hero-copy-left">
+            A pure vegetarian dining concept shaped by seasonality, texture,
+            restraint, and the quiet beauty of fresh ingredients.
+          </p>
+
+          <div class="scroll-indicator">
+            Scroll to experience
+            <span class="scroll-line"></span>
+          </div>
+
+          <p class="hero-copy-right">
+            Nature, plated with precision.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-word" id="storyWord">
+        Flavor
+      </div>
+
+      <div class="container story-grid">
+        <div>
+          <div class="section-number">
+            01 — Philosophy
+          </div>
+
+          <h2 class="story-title">
+            Vegetables deserve the
+            <em>main stage.</em>
+          </h2>
+        </div>
+
+        <div class="story-copy">
+          <p>
+            Flora & Flavor transforms seasonal produce into expressive,
+            sculptural dishes. Each plate is composed with the same precision
+            as a piece of design: balanced, tactile, and intentionally minimal.
+          </p>
+
+          <a class="button button-light" href="#menu">
+            Discover the menu
+          </a>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Vegetarian</span>
+            </div>
+
+            <div class="stat">
+              <strong>04</strong>
+              <span>Seasonal menus</span>
+            </div>
+
+            <div class="stat">
+              <strong>01</strong>
+              <span>Clear philosophy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial">
+      <div class="container">
+        <div class="editorial-header">
+          <h2 class="editorial-title">
+            A quieter, more considered kind of luxury.
+          </h2>
+
+          <p class="editorial-intro">
+            Less decoration. More intention. Every detail—from ingredients to
+            typography—is designed to feel calm, tactile, and memorable.
+          </p>
+        </div>
+
+        <div class="editorial-grid">
+          <article class="editorial-card">
+            <img
+              src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=90"
+              alt="Elegant vegetarian dish"
+            />
+
+            <div class="editorial-overlay">
+              <span class="editorial-label">
+                Seasonal composition
+              </span>
+
+              <h3>
+                Color, texture, aroma, restraint.
+              </h3>
+            </div>
+          </article>
+
+          <article class="editorial-card">
+            <img
+              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=90"
+              alt="Fresh vegetables and botanical ingredients"
+            />
+
+            <div class="editorial-overlay">
+              <span class="editorial-label">
+                From the garden
+              </span>
+
+              <h3>
+                Ingredients with a sense of place.
+              </h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="container">
+        <div class="menu-header">
+          <h2 class="menu-title">
+            The seasonal edit.
+          </h2>
+
+          <div class="menu-filters">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="starter">Starters</button>
+            <button class="filter-button" data-filter="main">Mains</button>
+            <button class="filter-button" data-filter="dessert">Desserts</button>
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <article class="dish-card" data-category="starter">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=900&q=90"
+                alt="Roasted vegetables"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Garden Ember</h3>
+                <span class="dish-price">$14</span>
+              </div>
+
+              <p class="dish-description">
+                Fire-roasted vegetables, smoked yogurt, basil oil, and toasted
+                seeds.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Gluten-free</span>
+
+                <button class="add-button" data-item="Garden Ember">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card" data-category="main">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=90"
+                alt="Vegetarian dumplings"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Forest Dumplings</h3>
+                <span class="dish-price">$24</span>
+              </div>
+
+              <p class="dish-description">
+                Wild mushroom dumplings, herb broth, charred leek, and crispy
+                shallots.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Signature</span>
+
+                <button class="add-button" data-item="Forest Dumplings">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card" data-category="main">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=90"
+                alt="Green vegetarian pasta"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Verdant Ribbons</h3>
+                <span class="dish-price">$22</span>
+              </div>
+
+              <p class="dish-description">
+                Handmade pasta, garden greens, lemon cream, aged cheese, and
+                fresh herbs.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Seasonal</span>
+
+                <button class="add-button" data-item="Verdant Ribbons">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card" data-category="starter">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=90"
+                alt="Fresh green salad"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Morning Dew</h3>
+                <span class="dish-price">$13</span>
+              </div>
+
+              <p class="dish-description">
+                Baby leaves, citrus, cucumber, avocado, pistachio, and herb
+                vinaigrette.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Vegan</span>
+
+                <button class="add-button" data-item="Morning Dew">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card" data-category="dessert">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=90"
+                alt="Seasonal fruit dessert"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Orchard Light</h3>
+                <span class="dish-price">$11</span>
+              </div>
+
+              <p class="dish-description">
+                Poached pear, vanilla cream, almond crumble, and rosemary
+                caramel.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Seasonal</span>
+
+                <button class="add-button" data-item="Orchard Light">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="dish-card" data-category="dessert">
+            <div class="dish-image">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=90"
+                alt="Chocolate dessert"
+              />
+            </div>
+
+            <div class="dish-content">
+              <div class="dish-top">
+                <h3 class="dish-name">Cacao Garden</h3>
+                <span class="dish-price">$12</span>
+              </div>
+
+              <p class="dish-description">
+                Dark chocolate crémeux, olive oil cake, cocoa soil, and mint.
+              </p>
+
+              <div class="dish-footer">
+                <span class="tag">Indulgent</span>
+
+                <button class="add-button" data-item="Cacao Garden">
+                  Add to order
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation" id="reservation">
+      <div class="container reservation-grid">
+        <div class="reservation-copy">
+          <span class="eyebrow">Reservations</span>
+
+          <h2 class="reservation-title">
+            Your table, among the leaves.
+          </h2>
+
+          <p>
+            Choose your preferred evening and party size. This portfolio
+            prototype includes a polished front-end confirmation flow.
+          </p>
+        </div>
+
+        <form class="reservation-form" id="reservationForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required />
+            </div>
+
+            <div class="field">
+              <label for="time">Time</label>
+              <select id="time" name="time" required>
+                <option value="">Select a time</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="guests">Guests</label>
+
+              <select id="guests" name="guests" required>
+                <option value="">Select party size</option>
+                <option value="1">1 guest</option>
+                <option value="2">2 guests</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5">5 guests</option>
+                <option value="6">6 guests</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="notes">Notes</label>
+
+              <textarea
+                id="notes"
+                name="notes"
+                placeholder="Dietary needs, celebrations, or seating preferences"
+              ></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="button button-dark submit-button" type="submit">
+                Request reservation
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Flora & Flavor</div>
+
+          <p class="footer-copy">
+            A conceptual luxury vegetarian restaurant experience created for a
+            portfolio and front-end experimentation.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Explore</div>
+
+          <div class="footer-links">
+            <a href="#story">Philosophy</a>
+            <a href="#menu">Menu</a>
+            <a href="#reservation">Reservations</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Social</div>
+
+          <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">Behance</a>
+            <a href="#">Pinterest</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> Flora & Flavor. Concept project.
+      </div>
+    </div>
+  </footer>
+
+  <button class="floating-cart" id="cartButton" type="button">
+    View order
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <div class="toast-icon">✓</div>
+
+    <div>
+      <strong id="toastTitle">Reservation received</strong>
+      <p id="toastMessage">
+        Your request has been added to the conceptual booking list.
+      </p>
+    </div>
+
+    <button class="toast-close" id="toastClose" type="button" aria-label="Close">
+      ×
+    </button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    "use strict";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const hero = document.getElementById("hero");
+    const heroWord = document.getElementById("heroWord");
+    const orbit = document.getElementById("orbit");
+    const bowlStage = document.getElementById("bowlStage");
+    const bowlFrame = document.getElementById("bowlFrame");
+    const bowlShadow = document.getElementById("bowlShadow");
+    const heroCenterContent = document.getElementById("heroCenterContent");
+    const storyWord = document.getElementById("storyWord");
+
+    if (!prefersReducedMotion) {
+      gsap.set(".hero-center-label", {
+        y: 70,
+        opacity: 0
+      });
+
+      gsap.set(".hero-center-title .title-line", {
+        y: 110,
+        opacity: 0
+      });
+
+      gsap.set(".hero-center-title .title-line-accent", {
+        y: 120,
+        opacity: 0
+      });
+
+      gsap.set(".hero-center-actions .hero-cta", {
+        y: 60,
+        opacity: 0
+      });
+
+      const introTimeline = gsap.timeline({
+        defaults: {
+          ease: "power3.out"
+        }
+      });
+
+      introTimeline
+        .from(bowlStage, {
+          scale: 0.72,
+          rotation: -10,
+          opacity: 0,
+          duration: 1.45
+        })
+
+        .from(
+          ".hero-kicker",
+          {
+            y: -15,
+            opacity: 0,
+            duration: 0.8
+          },
+          "-=0.8"
+        )
+
+        .from(
+          ".hero-copy-left, .hero-copy-right, .scroll-indicator",
+          {
+            y: 18,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.08
+          },
+          "-=0.5"
+        );
+
+      const heroTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "+=2600",
+          scrub: 1.25,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+
+      heroTimeline
+        .to(
+          heroWord,
+          {
+            xPercent: -18,
+            scale: 1.12,
+            opacity: 0.11,
+            ease: "none"
+          },
+          0
+        )
+
+        .to(
+          orbit,
+          {
+            rotation: 35,
+            scale: 1.06,
+            opacity: 0.48,
+            ease: "none"
+          },
+          0
+        )
+
+        .to(
+          bowlFrame,
+          {
+            rotation: 95,
+            scale: 0.78,
+            xPercent: 22,
+            yPercent: 18,
+            ease: "none"
+          },
+          0.08
+        )
+
+        .to(
+          bowlStage,
+          {
+            yPercent: 8,
+            scale: 0.95,
+            ease: "none"
+          },
+          0.08
+        )
+
+        .to(
+          bowlShadow,
+          {
+            scaleX: 0.8,
+            scaleY: 0.65,
+            yPercent: 45,
+            opacity: 0.12,
+            ease: "none"
+          },
+          0.08
+        )
+
+        .to(
+          ".hero-center-label",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.18,
+            ease: "power2.out"
+          },
+          0.18
+        )
+
+        .to(
+          ".hero-center-title .title-line",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.22,
+            ease: "power3.out"
+          },
+          0.28
+        )
+
+        .to(
+          ".hero-center-title .title-line-accent",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.22,
+            ease: "power3.out"
+          },
+          0.38
+        )
+
+        .to(
+          ".hero-center-actions .hero-cta",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.18,
+            stagger: 0.06,
+            ease: "power2.out"
+          },
+          0.5
+        )
+
+        .to(
+          ".hero-kicker",
+          {
+            y: -50,
+            opacity: 0,
+            ease: "none"
+          },
+          0.24
+        )
+
+        .to(
+          ".hero-copy",
+          {
+            y: 50,
+            opacity: 0,
+            ease: "none"
+          },
+          0.28
+        )
+
+        .to(
+          bowlFrame,
+          {
+            rotation: 155,
+            scale: 0.62,
+            xPercent: 40,
+            yPercent: 40,
+            ease: "none"
+          },
+          0.58
+        )
+
+        .to(
+          orbit,
+          {
+            rotation: 70,
+            scale: 1.14,
+            opacity: 0.25,
+            ease: "none"
+          },
+          0.58
+        )
+
+        .to(
+          heroCenterContent,
+          {
+            scale: 1,
+            opacity: 1,
+            ease: "none"
+          },
+          0.62
+        )
+
+        .to(
+          ".hero-center-label",
+          {
+            y: -18,
+            opacity: 0,
+            ease: "none"
+          },
+          0.82
+        )
+
+        .to(
+          ".hero-center-title .title-line",
+          {
+            y: -30,
+            opacity: 0,
+            ease: "none"
+          },
+          0.84
+        )
+
+        .to(
+          ".hero-center-title .title-line-accent",
+          {
+            y: -36,
+            opacity: 0,
+            ease: "none"
+          },
+          0.86
+        )
+
+        .to(
+          ".hero-center-actions .hero-cta",
+          {
+            y: -20,
+            opacity: 0,
+            stagger: 0.03,
+            ease: "none"
+          },
+          0.87
+        )
+
+        .to(
+          bowlFrame,
+          {
+            rotation: 205,
+            scale: 0.46,
+            xPercent: 55,
+            yPercent: 72,
+            opacity: 0.15,
+            ease: "none"
+          },
+          0.78
+        )
+
+        .to(
+          ".hero-noise",
+          {
+            opacity: 0.02,
+            ease: "none"
+          },
+          0.8
+        )
+
+        .to(
+          hero,
+          {
+            backgroundColor: "#0c2118",
+            ease: "none"
+          },
+          0.82
+        )
+
+        .to(
+          heroWord,
+          {
+            color: "rgba(255,255,255,0.05)",
+            opacity: 0.04,
+            ease: "none"
+          },
+          0.82
+        );
+
+      gsap.to(storyWord, {
+        xPercent: -18,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".story",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1
+        }
+      });
+
+      gsap.from(".story-title", {
+        y: 80,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".story",
+          start: "top 72%"
+        }
+      });
+
+      gsap.from(".story-copy", {
+        y: 70,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".story",
+          start: "top 72%"
+        }
+      });
+
+      gsap.utils.toArray(".editorial-card").forEach((card, index) => {
+        gsap.from(card, {
+          y: 80,
+          opacity: 0,
+          duration: 1,
+          delay: index * 0.08,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 84%"
+          }
+        });
+      });
+    }
+
+    window.addEventListener("load", () => {
+      ScrollTrigger.refresh();
+    });
+
+    window.addEventListener("resize", () => {
+      ScrollTrigger.refresh();
+    });
+
+    /* Menu filters */
+
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const dishCards = document.querySelectorAll(".dish-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((item) => {
+          item.classList.toggle("active", item === button);
+        });
+
+        dishCards.forEach((card, index) => {
+          const shouldShow =
+            filter === "all" ||
+            card.dataset.category === filter;
+
+          card.classList.remove("entering");
+
+          if (shouldShow) {
+            card.classList.remove("hidden");
+
+            setTimeout(() => {
+              card.classList.add("entering");
+            }, index * 40);
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+
+        ScrollTrigger.refresh();
+      });
+    });
+
+    /* Cart */
+
+    const addButtons = document.querySelectorAll(".add-button");
+    const cartButton = document.getElementById("cartButton");
+    const cartCount = document.getElementById("cartCount");
+
+    let cartItems = [];
+
+    function updateCart() {
+      cartCount.textContent = cartItems.length;
+
+      cartButton.classList.remove("bump");
+      void cartButton.offsetWidth;
+      cartButton.classList.add("bump");
+    }
+
+    addButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        cartItems.push(button.dataset.item);
+        updateCart();
+
+        button.classList.add("added");
+        button.textContent = "Added ✓";
+        button.disabled = true;
+
+        setTimeout(() => {
+          button.classList.remove("added");
+          button.textContent = "Add to order";
+          button.disabled = false;
+        }, 900);
+      });
+    });
+
+    /* Toast */
+
+    const toast = document.getElementById("toast");
+    const toastTitle = document.getElementById("toastTitle");
+    const toastMessage = document.getElementById("toastMessage");
+    const toastClose = document.getElementById("toastClose");
+
+    let toastTimer = null;
+
+    function showToast(title, message) {
+      toastTitle.textContent = title;
+      toastMessage.textContent = message;
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 5000);
+    }
+
+    toastClose.addEventListener("click", () => {
+      toast.classList.remove("show");
+    });
+
+    cartButton.addEventListener("click", () => {
+      if (cartItems.length === 0) {
+        showToast(
+          "Your order is empty",
+          "Choose something from the seasonal menu to begin."
+        );
+
+        return;
+      }
+
+      const uniqueItems = [...new Set(cartItems)];
+
+      showToast(
+        `${cartItems.length} ${cartItems.length === 1 ? "item" : "items"} in your order`,
+        uniqueItems.join(", ")
+      );
+    });
+
+    /* Reservation */
+
+    const reservationForm = document.getElementById("reservationForm");
+    const reservationDate = document.getElementById("date");
+
+    const now = new Date();
+    const timezoneOffset = now.getTimezoneOffset() * 60 * 1000;
+
+    reservationDate.min = new Date(
+      now.getTime() - timezoneOffset
+    )
+      .toISOString()
+      .split("T")[0];
+
+    reservationForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!reservationForm.checkValidity()) {
+        reservationForm.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(reservationForm);
+
+      const name = formData.get("name");
+      const guests = Number(formData.get("guests"));
+      const dateValue = formData.get("date");
+      const timeValue = formData.get("time");
+
+      const formattedDate = new Intl.DateTimeFormat("en", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      }).format(new Date(`${dateValue}T12:00:00`));
+
+      const [hours, minutes] = timeValue.split(":");
+
+      const timeDate = new Date();
+
+      timeDate.setHours(
+        Number(hours),
+        Number(minutes),
+        0,
+        0
+      );
+
+      const formattedTime = new Intl.DateTimeFormat("en", {
+        hour: "numeric",
+        minute: "2-digit"
+      }).format(timeDate);
+
+      showToast(
+        `Thank you, ${name}`,
+        `Your conceptual reservation for ${guests} ${
+          guests === 1 ? "guest" : "guests"
+        } on ${formattedDate} at ${formattedTime} has been received.`
+      );
+
+      reservationForm.reset();
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
