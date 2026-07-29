@@ -1,50 +1,27 @@
 # Flora & Flavor
 
-An immersive, editorial website concept for a luxury vegetarian restaurant. The experience combines botanical visual design with scroll-driven storytelling, an interactive seasonal menu, reservation flow, gallery, reviews, and order interactions.
-
-## Live experience
-
-Open `index.html` directly in a browser, or serve the directory with any static web server.
-
-```bash
-npx serve .
-```
+Flora & Flavor is an immersive editorial website concept for a fictional luxury vegetarian restaurant. Botanical visual design, scroll-driven storytelling, a seasonal menu, reservation interactions, gallery content, reviews, and ordering controls are combined into a single static experience.
 
 ## Highlights
 
-- Apple-style pinned hero sequence powered by GSAP and ScrollTrigger
-- Scroll-synchronised bowl rotation, scaling, and staggered typography reveals
+- GSAP and ScrollTrigger-powered pinned hero sequence
+- Scroll-synchronised bowl rotation, scaling, and staggered typography
 - Responsive navigation and mobile menu
 - Filterable seasonal menu with interactive order controls
 - Reservation form with client-side validation and confirmation feedback
 - Editorial story, gallery, customer reviews, and location sections
-- Responsive layout with reduced-motion support
-- Single-file static architecture for simple deployment
+- Reduced-motion support
+- Dependency-light static architecture
 
-## Tech stack
+## Technology
 
 - Semantic HTML5
 - Modern CSS3
 - Vanilla JavaScript
-- [GSAP](https://gsap.com/) and ScrollTrigger
+- GSAP and ScrollTrigger
 - Google Fonts
 
-## Project structure
-
-```text
-flora-and-flavor/
-├── index.html
-├── README.md
-└── LICENSE
-```
-
 ## Run locally
-
-No build step is required.
-
-1. Clone the repository.
-2. Open the project directory.
-3. Launch `index.html`, or start a local static server.
 
 ```bash
 git clone https://github.com/manav193/Flora-and-Flavor.git
@@ -52,15 +29,24 @@ cd Flora-and-Flavor
 npx serve .
 ```
 
+No build step is required. Opening `index.html` directly also works for most functionality.
+
+## Project structure
+
+```text
+.
+├── index.html
+├── README.md
+└── LICENSE
+```
+
 ## Deployment
 
-Because the project is fully static, it can be deployed on GitHub Pages, Vercel, Netlify, or any static hosting service.
-
-For GitHub Pages, select the `main` branch and `/ (root)` directory under **Settings → Pages**.
+The project can be deployed on GitHub Pages, Vercel, Netlify, or any static host. For GitHub Pages, publish the `main` branch from the repository root.
 
 ## Concept notice
 
-Flora & Flavor is a fictional restaurant and portfolio project. Reservation and ordering interactions are front-end demonstrations and do not submit real bookings or payments.
+Flora & Flavor is a fictional restaurant and portfolio project. Reservation and ordering interactions are demonstrations only; they do not submit real bookings or payments.
 
 ## Author
 
